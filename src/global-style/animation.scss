@@ -1,0 +1,136 @@
+@keyframes skeleton {
+  0% {
+      opacity: 0.5;
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0.5;
+  }
+}
+@keyframes containerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes containerOut {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+@keyframes smallFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes smallFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
+@keyframes opacityIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ltrSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes ltrSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes bannerAction {
+  from {
+    margin-top: -400px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 56px;
+    opacity: 1;
+  }
+}
+.fadeoutin-enter-active {
+  animation: containerIn 0.3s;
+}
+.fadeoutin-leave-active {
+  animation: containerOut 0.3s;
+}
+.main-view-transition-enter-active {
+  animation: containerIn 0.3s;
+}
+.dropdown-animation-enter-active {
+  animation: containerIn 0.3s;
+}
+.dropdown-animation-leave-active {
+  animation: containerIn 0.3s reverse;
+}
+.rsb-animation-enter-active {
+  animation: containerIn 0.3s;
+}
+.rsb-animation-leave-active {
+  animation: containerIn 0.3s reverse;
+}
+.small-fade-in-enter-active {
+  animation: smallFadeIn 0.3s;
+}
+.small-fade-in-leave-active {
+  animation: smallFadeIn 0.3s reverse;
+}
+.opacity-enter-active {
+  animation: opacityIn 0.3s;
+}
+.opacity-leave-active {
+  animation: opacityIn 0.3s reverse;
+}
+.ltrslide-enter-active {
+  animation: ltrSlideIn 0.3s;
+}
+.ltrslide-leave-active {
+  animation: ltrSlideOut 0.3s;
+}
+
+.banneraction-enter-active {
+  animation: bannerAction 1s;
+}
+.banneraction-leave-active {
+  animation: bannerAction 1s reverse;
+}

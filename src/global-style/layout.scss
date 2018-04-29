@@ -1,0 +1,103 @@
+.container-fullsize {
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 24px 300px;
+  min-height: 100vh;
+  margin-top: 56px;
+}
+
+.container-768 {
+  max-width: 768px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  min-height: 100vh;
+  padding: 30px 24px;
+  margin-top: 56px;
+}
+
+
+.main-view {
+  width: calc(100vw - 360px);
+  &.fullsize {
+    width: 100vw;
+  }
+}
+
+.rsb-view {
+  display: block;
+  position: fixed;
+  top: 56px;
+  right: 0;
+  width: 360px;
+  background-color: #fff;
+  box-shadow: $shadow-2;
+  overflow: scroll;
+  &.close {
+    opacity: 0;
+    transform: translateX(100%)
+  }
+}
+
+.btn-toggle-rsb {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  top: 80px;
+  right: 16px;
+  background-color: $white;
+  z-index: 1000;;
+  box-shadow: $shadow-2;
+  border-radius: 24px;
+  img {
+    position: relative;
+    left: -1px;
+    transform: rotate(-90deg);
+    transition: all 0.3s;
+    &.close {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+
+@media (max-width: 2148px) {
+    .container-fullsize {
+      max-width: 1548px;
+      &.fullsize {
+        max-width: 1848px;
+      }
+    }
+  }
+  @media (max-width: 1848px) {
+    .container-fullsize {
+      max-width: 1248px;
+      &.fullsize {
+        max-width: 1548px;
+      }
+    }
+  }
+  @media (max-width: 1548px) {
+    .container-fullsize {
+      max-width: 948px;
+      &.fullsize {
+        max-width: 1248px;
+      }
+    }
+  }
+  @media (max-width: 1248px) {
+    .container-fullsize {
+      max-width: 648px;
+      &.fullsize {
+        max-width: 948px;
+      }
+    }
+  }
+  @media (max-width: 948px) {
+    .container-fullsize {
+      max-width: 348px;
+      &.fullsize {
+        max-width: 648px;
+      }
+    }
+  }
