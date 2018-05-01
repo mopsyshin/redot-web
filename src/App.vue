@@ -28,12 +28,14 @@ export default {
 @import './global-style/init.scss';
 @import './global-style/animation.scss';
 .container-main-view {
+  width: 100vw;
+  max-width: 768px;
+  margin: 0 auto;
+  margin-top:56px;
   .main-router-view {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     max-width: 768px;
-    margin: 0 auto;
-    margin-top:56px;
   }
 }
 </style>
