@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <Gnb/>
-    <router-view/>
+    <HeaderGnb/>
+    <div class="container-main-view">
+      <transition name="main-view-transition" appear>
+        <router-view class="main-router-view"/>
+      </transition>
+    </div>
+    <FooterGnb/>
   </div>
 </template>
 
 <script>
-import Gnb from './shared-components/Gnb/Gnb';
+import HeaderGnb from './global-components/Gnb/HeaderGnb';
+import FooterGnb from './global-components/Gnb/FooterGnb';
 
 export default {
   name: 'App',
   components: {
-    Gnb,
+    HeaderGnb,
+    FooterGnb,
   },
 };
 </script>
@@ -19,7 +26,16 @@ export default {
 <style lang="scss">
 @import './global-style/variables.scss';
 @import './global-style/init.scss';
-@import './global-style/layout.scss';
 @import './global-style/animation.scss';
-@import './shared-components/Gnb/Gnb.scss';
+.container-main-view {
+  width: 100vw;
+  max-width: 768px;
+  margin: 0 auto;
+  margin-top:56px;
+  .main-router-view {
+    position: absolute;
+    width: 100%;
+    max-width: 768px;
+  }
+}
 </style>

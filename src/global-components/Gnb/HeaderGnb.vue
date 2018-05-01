@@ -1,31 +1,61 @@
-.container-gnb {
+<template>
+  <div class="container-header-gnb">
+    <div class="gnb-left">
+      <div class="wrapper-search-input">
+        <img src="@/assets/gnb-search.svg">
+        <input type="text" placeholder="Channels, Users and Posts">
+      </div>
+    </div>
+    <div class="gnb-right">
+      <img src="@/assets/icn-menu.svg" @click="toggleSideBar">
+    </div>
+    <SideBar v-show="sideBarState"/>
+  </div>
+</template>
+
+<script>
+import SideBar from './components/SideBar';
+
+export default {
+  name: 'HeaderGnb',
+  data() {
+    return {
+      sideBarState: false,
+    };
+  },
+  methods: {
+    toggleSideBar() {
+      this.sideBarState = !this.sideBarState;
+    },
+  },
+  components: {
+    SideBar,
+  },
+};
+
+</script>
+
+<style lang="scss" scoped>
+@import '@/global-style/variables.scss';
+.container-header-gnb {
   position: fixed;
   top:0;
   left:0;
   z-index: 10000;
-  background-color: #fff; 
+  background-color: $white;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 24px;
+  padding: 0 1rem;
   height: 56px;
-  box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.06);
+  box-shadow: 0px 10px 20px 0px rgba(255,255,255,1);
   .gnb-left, .gnb-right {
       display: flex;
       align-items: center;
   }
   .gnb-left {
-      width: 60%;
-  }
-  .gnb-right {
-      position: absolute;
-      right: 20px;
-      font-size: 12px;
-  }
-  .gnb-logo {
-      width: 26px;
-      cursor: pointer;
+      width: 85%;
   }
   .wrapper-search-input {
       display: flex;
@@ -36,12 +66,11 @@
       background-color: #f8f8f8;
       border-radius: 100px;
       padding: 7px 16px;
-      margin-left: 30px;
       input {
           background-color: transparent;
           border: none;
           width: calc(100% - 32px);
-          font-size: 16px;
+          font-size: 14px;
           margin-left: 12px;
       }
   }
@@ -80,7 +109,7 @@
           width: 25px;
           height: 25px;
           margin-left: 5px;
-          background-image: url(./assets/user-img.png);
+          background-image: url(../../assets/user-img.png);
           background-position: center;
           background-repeat: no-repeat;
           box-shadow: $shadow-2;
@@ -93,7 +122,6 @@
           height: 38px;
           button {
               border-radius: 100px;
-
               &:hover {
                   @include background-hover;
               }
@@ -115,7 +143,7 @@
               position: relative;
               right: 16px;
               top: 4px;
-          } 
+          }
       }
       .gnb-more {
           border-radius: 100px;
@@ -135,5 +163,6 @@
           }
       }
   }
- 
 }
+</style>
+

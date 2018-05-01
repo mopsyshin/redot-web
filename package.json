@@ -11,10 +11,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "firebase": "^4.13.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
     "vue": "^2.5.2",
+    "vue-masonry": "^0.11.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
