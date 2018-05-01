@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "redot-web": "redot-web",
+    "default": "redot-web"
+  }
+}

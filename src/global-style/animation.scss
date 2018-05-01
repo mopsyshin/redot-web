@@ -1,3 +1,14 @@
+@keyframes likeit {
+  0% {
+    transform: scale(1);  
+  }
+  40% {
+    transform: scale(1.2);  
+  }
+  100% {
+    transform: scale(1);  
+  }
+}
 @keyframes skeleton {
   0% {
       opacity: 0.5;
@@ -21,7 +32,7 @@
 }
 @keyframes containerOut {
   from {
-    opacity: 1;
+    opacity: 0;
     transform: translateY(0px);
   }
   to {
@@ -97,6 +108,9 @@
 .main-view-transition-enter-active {
   animation: containerIn 0.3s;
 }
+.main-view-transition-leave-active {
+  animation: containerOut 0.3s;
+}
 .dropdown-animation-enter-active {
   animation: containerIn 0.3s;
 }
@@ -127,7 +141,6 @@
 .ltrslide-leave-active {
   animation: ltrSlideOut 0.3s;
 }
-
 .banneraction-enter-active {
   animation: bannerAction 1s;
 }
