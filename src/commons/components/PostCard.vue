@@ -1,8 +1,8 @@
 <template>
   <div class="container-card">
     <div class="card-header">
-      <div class="channel-name">
-        @채널
+      <div class="channel-name" :style="{color : post.post_channel_color}">
+        @{{ post.post_channel_name }}
       </div>
       <div class="more">
         <!-- <img src="@/assets/post-more.svg" alt=""> -->
@@ -10,15 +10,15 @@
     </div>
     <div class="card-body">
       <div class="card-title">
-        카드 타이틀 영역입니다.
-        <span class="comment-count">[{{ index }}]</span>
+        {{ post.post_title }}
+        <span class="comment-count">[12]</span>
       </div>
       <div class="card-image">
-        <!-- <img src="@/assets/sample.jpg" alt=""> -->
+        <img :src="post.post_thumb_image" alt="" v-show="!post.post_thumb_image == ''">
       </div>
     </div>
     <div class="card-user-name">
-      by <span class="user-name">Mopsy</span>
+      by <span class="user-name">{{ post.post_user_name }}</span>
     </div>
     <div class="card-footer">
       <div class="date">
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  props: ['index'],
+  props: ['post'],
   data() {
     return {
       heartState: false,
@@ -45,7 +45,7 @@ export default {
     };
   },
   mounted() {
-    this.likeCount = this.index;
+    this.likeCount = this.post.post_like_count;
   },
   methods: {
     toggleLike() {
@@ -64,11 +64,6 @@ export default {
 <style lang="scss" scoped>
 @import '@/global-style/variables.scss';
 .container-card {
-  padding: 16px;
-  box-shadow: 1px 2px 16px 0px rgba(0,0,0,0.06);
-  border-radius: 14px;
-  width: 46.5%;
-  margin: 1%;
   .card-header {
     display: flex;
     justify-content: space-between;
