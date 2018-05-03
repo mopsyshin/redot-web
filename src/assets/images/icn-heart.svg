@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>icn-heart</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="asset" transform="translate(-225.000000, -115.000000)" fill="#FF5094">
+            <g id="Group" transform="translate(225.000000, 115.000000)">
+                <path d="M17.9962836,5.09570957 C17.9894159,2.28484387 15.7770467,0 13.0594135,0 C11.422947,0 9.91402294,0.844884488 8.99964239,2.19649657 C8.08624295,0.845899975 6.57633774,0 4.93987128,0 C2.21831375,0 0.00398232895,2.29195227 0.00398232895,5.09570957 C-0.0411480411,6.14369129 0.153108769,11.5856816 8.53754665,15.8659558 L8.77693383,15.9583651 C8.84855376,15.9857832 8.92409808,16 8.99964239,16 C9.07518671,16 9.15073102,15.9857832 9.22333205,15.9583651 L9.52060384,15.8395532 C17.8275352,11.594821 18.0404328,6.16806296 17.9962836,5.09570957" id="Fill-1"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,19 +1,14 @@
 <template>
-  <div>
-    <top-navigation-bar/>
-    <hello-world/>
-  </div>
+  <trending/>
 </template>
 
 <script>
-import TopNavigationBar from '../shared-components/TopNavigationBar';
-import HelloWorld from './components/HelloWorld';
+import Trending from './tranding/Trending';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
-    TopNavigationBar,
+    Trending,
   },
 };
 </script>

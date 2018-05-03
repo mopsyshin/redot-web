@@ -1,6 +1,18 @@
-$color_suny_red: #D60036;
-$color_suny_blue: #4B68C5;
-$color_warm_red: #EA7F9A;
-$color_dark_gray: #494949;
-$color_warm_gray: #75746f;
-$color_smoke_gray: #DDDDDB;
+$shadow-3: 2px 4px 22px rgba(0, 0, 0, 0.05);
+$shadow-2: 0px 2px 8px rgba(0, 0, 0, 0.08);
+$shadow-1: 0px 2px 8px rgba(0, 0, 0, 0.04);
+$white: #ffffff;
+$light-grey1: #999999;
+$light-grey2: #bbbbbb;
+$light-grey3: #dddddd;
+$light-grey4: #f8f8f8;
+$dark-grey1: #666666;
+$dark-grey2: #333333;
+$point-red: #FF5D6E;
+$active-blue: #2e89ff;
+$active-blue-hover: #246df3;
+
+@mixin background-hover {
+  background-color: #f4f4f4;
+  transition: 0.2s all;
+}

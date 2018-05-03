@@ -1,9 +1,15 @@
+import Vue from 'vue';
 import Vuex from 'vuex';
+import account from './modules/account';
+
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  state: {
+  modules: {
+    accountStore: account,
   },
-  mutations: {
+  state: {
+    storeState: 0,
   },
 });
 

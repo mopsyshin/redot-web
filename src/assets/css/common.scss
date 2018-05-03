@@ -1,13 +1,5 @@
 @import './variables';
+@import './init';
 @import './grid';
+@import './animation';
 @import './fonts';
-
-html, body {
-  font-family: 'Nanum Gothic', sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-
-  width: 100%;
-  height: 100%;
-}
