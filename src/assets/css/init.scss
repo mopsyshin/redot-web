@@ -1,62 +1,62 @@
 body, div, p, span, h1, h2, h3, h4, h5, h6, li, ul, input, textarea {
-  margin: 0;
-  padding: 0;
-  font-family:  "Apple SD Gothic Neo", 'Noto Sans KR', Helvetica, Arial, sans-serif, "marguen gothic", 'gulim', '맑은고딕';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  }
-  div {
-  box-sizing: border-box;
-  }
-  
-  li {
-  list-style: none;
-  }
-  
-  body {
-  color: $dark-grey1;
-  font-size: 16px;
-  line-height: 1.4;
-  }
-  div {
-  transition: all 0.3s;
-  }
-  button {
-  border: none;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s;
-  &:focus {
-  outline: none;
-  }
-  }
-  input:focus {
-  outline: none;
-  }
-  ::-webkit-scrollbar-track
-  {
-  border-radius: 2px;
-  background-color: #ffffff;
-  opacity: 0;
-  }
-  
-  ::-webkit-scrollbar
-  {
-  width: 0px;
-  background-color: #ffffff;
-  opacity: 0;
-  display: none;
-  }
-  
-  ::-webkit-scrollbar-thumb
-  {
-  border-radius: 2px;
-  background-color: #eee;
-  }
-  
-  hr {
-  margin-top: 30px;
-  border: 0.5px inset #eee;
-  }
+margin: 0;
+padding: 0;
+font-family:  "Apple SD Gothic Neo", 'Noto Sans KR', Helvetica, Arial, sans-serif, "marguen gothic", 'gulim', '맑은고딕';
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+div {
+box-sizing: border-box;
+}
+
+li {
+list-style: none;
+}
+
+body {
+color: $dark-grey1;
+font-size: 16px;
+line-height: 1.4;
+}
+div {
+transition: all 0.3s;
+}
+button {
+border: none;
+background: transparent;
+margin: 0;
+padding: 0;
+cursor: pointer;
+transition: all 0.3s;
+&:focus {
+outline: none;
+}
+}
+input:focus {
+outline: none;
+}
+::-webkit-scrollbar-track
+{
+border-radius: 2px;
+background-color: #ffffff;
+opacity: 0;
+}
+
+::-webkit-scrollbar
+{
+width: 0px;
+background-color: #ffffff;
+opacity: 0;
+display: none;
+}
+
+::-webkit-scrollbar-thumb
+{
+border-radius: 2px;
+background-color: #eee;
+}
+
+hr {
+margin-top: 30px;
+border: 0.5px inset #eee;
+}

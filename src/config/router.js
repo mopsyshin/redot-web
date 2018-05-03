@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Trending from '@/spa/tranding/Trending';
+import Trending from '@/spa/trending/Trending';
 import Channel from '@/spa/channel/Channel';
 import Upload from '@/spa/upload/Upload';
 import Noti from '@/spa/noti/Noti';

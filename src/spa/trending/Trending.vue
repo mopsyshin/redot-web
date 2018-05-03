@@ -132,12 +132,8 @@ export default {
 
 </script>
 
-<<<<<<< HEAD:src/spa/Trending/Trending.vue
 <style lang='scss' scoped>
-@import '@/global-style/variables.scss';
-=======
-<style lang="scss" scoped>
->>>>>>> ef90c000a50749eefd3bb0b72fe38e7d33f95f7a:src/spa/tranding/Trending.vue
+@import '@/assets/css/common.scss';
 .container-trending {
   padding-bottom: 140px;
   .post-list {

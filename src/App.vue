@@ -24,6 +24,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/css/common.scss';
+
 .container-main-view {
   width: 100vw;
   max-width: 768px;

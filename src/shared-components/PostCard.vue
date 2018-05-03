@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/css/common';
+@import '@/assets/css/common.scss';
 
 .container-card {
   .card-header {

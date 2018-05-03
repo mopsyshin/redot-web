@@ -4,7 +4,7 @@
       @click="toRouter(gnbItem)"
       v-for="gnbItem in gnbItemList"
       :key="gnbItem.key">
-      <img :src='"@/assets/" + gnbItem + "-on.svg"'
+      <img :src='"@/assets/images/" + gnbItem + "-on.svg"'
       :class="{active: gnbItem == currentTab}">
     </div>
   </div>
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/css/common';
+@import '@/assets/css/common.scss';
 
 .container-footer-gnb {
   position: fixed;

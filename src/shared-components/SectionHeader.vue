@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/css/common';
+@import '@/assets/css/common.scss';
 
 .section-title-wrapper {
   display: flex;
