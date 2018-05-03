@@ -3,8 +3,8 @@
 import Vue from 'vue';
 import { VueMasonryPlugin } from 'vue-masonry';
 import App from './App';
-import router from './router';
-import store from './store';
+import router from './config/router';
+import store from './vuex/store';
 
 Vue.use(VueMasonryPlugin);
 Vue.config.productionTip = false;
