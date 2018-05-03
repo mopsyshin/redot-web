@@ -1,4 +1,3 @@
-'use strict'
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
@@ -36,11 +35,16 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'styles': resolve('src/assets/css/')
     }
   },
   module: {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),
+      {
+        test: /.s[a|c]ss$/,
+        loader: 'style!css!sass'
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
