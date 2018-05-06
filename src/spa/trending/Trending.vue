@@ -1,36 +1,40 @@
 <template>
   <div class="container-trending">
     <SectionHeader :content="sectionHeaderContent"/>
-    <div v-masonry transition-duration="0.3s"
+    <div v-masonry transition-duration="0s"
          item-selector=".post-card-item" class="post-list">
-      <PostCard v-masonry-tile class="post-card-item"
-                v-for="post in posts"
-                v-if="postReady"
-                :key="post.key"
-                :post="post"/>
-      <div v-masonry-tile class="post-card-item skeleton"
-                v-if="!postReady"
-                v-for="(item, index) in 12"
-                :key="index">
-        <div class="channel"></div>
-        <div class="title1"></div>
-        <div class="title2"></div>
-        <div class="image" :style="{height : randomNumber() + 'px' }" v-if="index % 3 !== 1"></div>
-        <div class="author"></div>
-        <div class="footer"></div>
-      </div>
+      <transition-group name="card-animation" appear>
+        <PostCard v-masonry-tile
+                  class="post-card-item"
+                  v-for="(post) in posts"
+                  v-if="postReady"
+                  :key="post.post_id"
+                  :post="post">
+        </PostCard>
+        <div v-masonry-tile
+              class="post-card-item skeleton"
+              v-for="(item, index) in 6"
+              :key="index">
+          <div class="channel"></div>
+          <div class="title1"></div>
+          <div class="title2"></div>
+          <div class="image" :style="{height : randomNumber() + 'px' }"
+                            v-if="index % 3 !== 1"></div>
+          <div class="author"></div>
+          <div class="footer"></div>
+        </div>
+      </transition-group>
     </div>
   </div>
 </template>
 
 <script>
+import _ from 'lodash';
 import SectionHeader from '@/shared-components/SectionHeader';
 import PostCard from '@/shared-components/PostCard';
 import Vue from 'vue';
 import { VueMasonryPlugin } from 'vue-masonry';
-import _ from 'lodash';
-import db from '../../firebase';
-
+import { db } from '../../firebase';
 
 Vue.use(VueMasonryPlugin);
 
@@ -39,12 +43,20 @@ export default {
   data() {
     return {
       sectionHeaderContent: {
-        title: 'Trending Posts',
+        title: 'Recent Posts',
         funcIcon: 'setting',
       },
       postReady: false,
       posts: [],
+      next: null,
     };
+  },
+  watch: {
+    '$store.state.refreshCount': function () {
+      this.$nextTick(() => {
+        this.getPosts();
+      });
+    },
   },
   created() {
     this.getPosts();
@@ -59,6 +71,8 @@ export default {
       return random;
     },
     getPosts() {
+      this.posts = [];
+      this.$redrawVueMasonry();
       this.postReady = false;
       const first = db.collection('post_list_thumb').orderBy('post_created_date', 'desc').limit(20);
       first.get().then((querySnapshot) => {
@@ -90,12 +104,11 @@ export default {
           .limit(20);
       }).catch((err) => {
         const message = '마지막 포스트입니다';
-        console.log(message, err);
+        console.log(message + err);
       });
     },
-
     // 한번 스크롤을 감지한 이후엔 300ms 이후 스크롤을 감지합니다
-    onScroll: _.debounce(() => {
+    onScroll: _.debounce(function () {
       let scrOfY = 0;
       let docHeight = 0;
       let winHeight = 0;
@@ -115,14 +128,15 @@ export default {
         }
         return scrOfY;
       }
-      docHeight = document.body.offsetHeight;
+      docHeight = document.querySelector('.main-router-view').offsetHeight;
       winHeight = window.innerHeight;
       currentScroll = getScrollY();
       pos = docHeight - (winHeight + currentScroll);
-      if (pos < 100) {
+      console.log(pos);
+      if (pos < 200) {
         this.loadmore();
       }
-    }, 100),
+    }, 500),
   },
   components: {
     SectionHeader,

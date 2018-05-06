@@ -16,6 +16,7 @@
     "moment": "^2.22.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
+    "scroll-js": "^1.8.8",
     "style-loader": "^0.21.0",
     "vue": "^2.5.2",
     "vue-masonry": "^0.11.1",

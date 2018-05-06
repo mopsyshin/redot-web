@@ -49,6 +49,8 @@ export default {
   },
   methods: {
     toggleLike() {
+      // const id = this.post.post_id;
+      // const originalId = this.post.post_original_id;
       this.heartState = !this.heartState;
       if (this.heartState) {
         this.likeCount = this.likeCount + 1;

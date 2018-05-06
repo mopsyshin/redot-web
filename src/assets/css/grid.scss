@@ -1,17 +1,19 @@
 .flex-container {
   display: flex;
 }
-
 .flex-align-center {
   justify-content: center;
   align-content: center;
   align-items: center;
 }
-
+.flex-align-center-between {
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
 .flex-sort-column {
   flex-direction: column;
 }
-
 .flex-sort-row {
   flex-direction: row;
 }

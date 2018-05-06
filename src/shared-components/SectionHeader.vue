@@ -5,13 +5,10 @@
     </div>
     <div class="section-right">
       <button class="btn-filter" v-if="content.funcIcon == 'setting'">
-        <img src="@/assets/images/gnb-setting.svg" alt="">
+        <img src="@/assets/images/gnb-setting.svg">
       </button>
       <button class="btn-filter" v-if="content.funcIcon == 'more'">
-        <img src="@/assets/images/post-more.svg" alt="">
-      </button>
-      <button class="btn-filter" v-if="content.funcIcon == 'down'">
-        <img src="@/assets/images/icn-down.svg" alt="">
+        <img src="@/assets/images/post-more.svg">
       </button>
     </div>
   </div>

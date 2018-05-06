@@ -1,7 +1,7 @@
 <template>
   <div class="container-footer-gnb">
     <div class="footer-gnb-item"
-      @click="toRouter(gnbItem)"
+      @click="changeTab(gnbItem)"
       v-for="gnbItem in gnbItemList"
       :key="gnbItem.key">
       <img :src='"@/assets/images/" + gnbItem + "-on.svg"'
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import Scroll from 'scroll-js';
+
 export default {
   nmae: 'FooterGnb',
   data() {
@@ -39,9 +41,19 @@ export default {
       path = path.slice(1);
       this.currentTab = path;
     },
-    toRouter(targetUrl) {
-      this.$router.push(targetUrl);
-      this.currentTab = targetUrl;
+    changeTab(targetUrl) {
+      const scroll = new Scroll(document.body);
+      if (targetUrl === 'upload') {
+        this.$store.dispatch('toggleUploadPageState');
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+      } else if (targetUrl === 'trending' && this.currentTab === 'trending') {
+        this.$store.dispatch('refreshTrending');
+        scroll.to(0, 1);
+      } else {
+        this.$router.push({ name: targetUrl });
+        this.currentTab = targetUrl;
+      }
     },
   },
 };
