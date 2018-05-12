@@ -15,13 +15,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/css/common';
+@import '@/assets/css/variables.scss';
 
 .container-header-gnb {
   position: fixed;
   top:0;
   left:0;
-  z-index: 10000;
+  z-index: 30;
   background-color: $white;
   width: 100%;
   display: flex;
@@ -45,14 +45,6 @@ export default {
       width: calc(100% - 32px);
       font-size: 14px;
       margin-left: 12px;
-    }
-  }
-  .wrapper-search-input {
-    input::placeholder {
-      color: #bbb;
-    }
-    input:focus {
-      outline: none;
     }
   }
   .login-state {

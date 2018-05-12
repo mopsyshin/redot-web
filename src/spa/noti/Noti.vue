@@ -12,7 +12,7 @@ export default {
     return {
       sectionHeaderContent: {
         title: 'Notification',
-        funcIcon: 'setting',
+        funcIcon: 'nope',
       },
     };
   },
@@ -24,6 +24,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/common.scss';
+@import '@/assets/css/variables.scss';
 
 </style>

@@ -8,11 +8,26 @@ $light-grey3: #dddddd;
 $light-grey4: #f8f8f8;
 $dark-grey1: #666666;
 $dark-grey2: #333333;
-$point-red: #FF5D6E;
+$point-red: #FF4E5F;
 $active-blue: #2e89ff;
 $active-blue-hover: #246df3;
 
 @mixin background-hover {
   background-color: #f4f4f4;
   transition: 0.2s all;
+}
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin flex-around {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

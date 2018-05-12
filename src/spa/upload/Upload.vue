@@ -79,7 +79,7 @@ export default {
       return false;
     },
     userName() {
-      return this.user.user_name;
+      return this.user.displayName;
     },
   },
   methods: {
@@ -203,14 +203,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/common.scss';
+@import '@/assets/css/variables.scss';
 .container-upload {
   position: fixed;
   width: 100vw;
   min-height: 100vh;
   top: 0;
   left: 0;
-  z-index: 30000;
+  z-index: 100;
   background-color: $white;
   .upload-header {
     padding: 16px;

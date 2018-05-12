@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/common.scss';
+@import '@/assets/css/variables.scss';
 .channel-item {
   padding: 12px 16px;
 }

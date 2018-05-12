@@ -4,6 +4,8 @@ import Trending from '@/spa/trending/Trending';
 import Channel from '@/spa/channel/Channel';
 import Noti from '@/spa/noti/Noti';
 import Profile from '@/spa/profile/Profile';
+import PostDetail from '@/spa/post/PostDetail';
+import Login from '@/spa/LoginPage';
 
 Vue.use(Router);
 
@@ -18,6 +20,13 @@ export default new Router({
       path: '/trending',
       name: 'trending',
       component: Trending,
+      children: [
+        {
+          path: '/trending/post/:id',
+          name: 'postdetail',
+          component: PostDetail,
+        },
+      ],
     },
     {
       path: '/channel',
@@ -33,6 +42,11 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Profile,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
     },
   ],
   scrollBehavior() {

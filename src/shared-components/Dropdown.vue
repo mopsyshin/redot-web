@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/common.scss';
+@import '@/assets/css/variables.scss';
 .dropdown-container {
     .selected-item {
         display: inline-block;
@@ -68,7 +68,7 @@ export default {
     }
     .dropdown-list {
         position: absolute;
-        z-index: 1000;
+        z-index: 150;
         box-shadow: $shadow-2;
         width: calc(100% - 32px);
         .dropdown-list-item {

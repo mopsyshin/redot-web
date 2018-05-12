@@ -8,7 +8,7 @@
         <!-- <img src="@/assets/post-more.svg" alt=""> -->
       </div>
     </div>
-    <div class="card-body">
+    <div class="card-body" @click="toPostDetail">
       <div class="card-title">
         {{ post.post_title }}
         <span class="comment-count">[12]</span>
@@ -28,7 +28,7 @@
         <span class="like-count">{{ likeCount }}</span>
         <img class="btn-heart"
         src="@/assets/images/icn-heart.svg"
-        :class="{ active: heartState }"
+        :class="{ active: heartState, 'pop': popState }"
         @click="toggleLike">
       </div>
     </div>
@@ -36,27 +36,53 @@
 </template>
 
 <script>
+import { db } from '@/firebase';
+
 export default {
   props: ['post'],
   data() {
     return {
       heartState: false,
       likeCount: 0,
+      popState: false,
     };
   },
   mounted() {
     this.likeCount = this.post.post_like_count;
   },
   methods: {
+    toPostDetail() {
+      this.$router.push({ name: 'postdetail', params: { id: this.post.post_original_id } });
+    },
     toggleLike() {
-      // const id = this.post.post_id;
-      // const originalId = this.post.post_original_id;
-      this.heartState = !this.heartState;
-      if (this.heartState) {
+      this.popState = true;
+      const id = this.post.post_id;
+      const originalId = this.post.post_original_id;
+      let currentLikeCount;
+      if (!this.heartState) {
         this.likeCount = this.likeCount + 1;
-      } else {
-        this.likeCount = this.likeCount - 1;
+        db.collection('post').doc(originalId).get().then((doc) => {
+          currentLikeCount = doc.data().post_like_count + 1;
+        })
+          .then(() => {
+            db.collection('post').doc(originalId).update({
+              post_like_count: currentLikeCount,
+            })
+              .then(() => {
+                console.log('update1-success');
+              });
+            db.collection('post_list_thumb').doc(id).update({
+              post_like_count: currentLikeCount,
+            })
+              .then(() => {
+                console.log('update2-success');
+              });
+          });
       }
+      this.heartState = true;
+      setTimeout(() => {
+        this.popState = false;
+      }, 200);
     },
   },
 };
@@ -64,7 +90,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/common.scss';
+@import '@/assets/css/variables.scss';
 
 .container-card {
   .card-header {
@@ -125,6 +151,9 @@ export default {
           animation: likeit 0.2s;
           filter: none;
           opacity: 1;
+        }
+        &.pop {
+          animation: popit 0.2s;
         }
       }
     }

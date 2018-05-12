@@ -25,6 +25,9 @@
         </div>
       </transition-group>
     </div>
+    <transition name="rtl" appear>
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -44,7 +47,7 @@ export default {
     return {
       sectionHeaderContent: {
         title: 'Recent Posts',
-        funcIcon: 'setting',
+        funcIcon: 'nope',
       },
       postReady: false,
       posts: [],
@@ -133,10 +136,10 @@ export default {
       currentScroll = getScrollY();
       pos = docHeight - (winHeight + currentScroll);
       console.log(pos);
-      if (pos < 200) {
+      if (pos < 300) {
         this.loadmore();
       }
-    }, 500),
+    }, 100),
   },
   components: {
     SectionHeader,
@@ -147,7 +150,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@import '@/assets/css/common.scss';
+@import '@/assets/css/variables.scss';
 .container-trending {
   padding-bottom: 140px;
   .post-list {

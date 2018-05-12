@@ -1,9 +1,16 @@
 const account = {
   state: {
-    user: {
-      user_name: 'mopsy',
-      user_email: 'mopsyshin@gmail.com',
-      user_like_list: [],
+    user: null,
+    loginState: false,
+    userInfo: [],
+  },
+  mutations: {
+    setLoginState(state, payload) {
+      state.loginState = payload.loginState;
+    },
+    setUser(state, payload) {
+      state.user = payload.user;
+      state.userInfo = payload.userInfo[0];
     },
   },
 };

@@ -1,11 +1,13 @@
 <template>
-  <div class="container-footer-gnb">
-    <div class="footer-gnb-item"
-      @click="changeTab(gnbItem)"
-      v-for="gnbItem in gnbItemList"
-      :key="gnbItem.key">
-      <img :src='"@/assets/images/" + gnbItem + "-on.svg"'
-      :class="{active: gnbItem == currentTab}">
+  <div class="wrapper-gnb">
+    <div class="container-footer-gnb">
+      <div class="footer-gnb-item"
+        @click="changeTab(gnbItem)"
+        v-for="gnbItem in gnbItemList"
+        :key="gnbItem.key">
+        <img :src='"@/assets/images/" + gnbItem + "-on.svg"'
+        :class="{active: gnbItem == currentTab}">
+      </div>
     </div>
   </div>
 </template>
@@ -60,27 +62,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/common.scss';
-
-.container-footer-gnb {
+@import '@/assets/css/variables.scss';
+.wrapper-gnb {
   position: fixed;
-  display: flex;
-  justify-content: space-around;
+  width: 100vw;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 44px;
-  border-top: 1px solid $light-grey4;
-  background-color: $white;
-  .footer-gnb-item {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    img {
-      opacity: 0.4;
-      transition: all 0.3s;
-      &.active {
-        opacity: 1;
+  .container-footer-gnb {
+    @include flex-around;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    height: 44px;
+    border-top: 1px solid $light-grey4;
+    background-color: $white;
+    .footer-gnb-item {
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      img {
+        opacity: 0.4;
+        transition: all 0.3s;
+        &.active {
+          opacity: 1;
+        }
       }
     }
   }

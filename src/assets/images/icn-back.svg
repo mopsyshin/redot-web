@@ -1,3 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22">
-    <path fill="#FFF" fill-rule="evenodd" d="M6.163 11.416l8.889 9.411c.216.23.569.23.785 0a.613.613 0 0 0 0-.83L7.342 11l8.495-8.996a.613.613 0 0 0 0-.83.538.538 0 0 0-.392-.174.539.539 0 0 0-.393.173l-8.89 9.411a.614.614 0 0 0 0 .832"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>icn_back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.900000036">
+        <g id="post_ad" transform="translate(-12.000000, -51.000000)" fill="#CCCCCC">
+            <g id="Group-2" transform="translate(0.000000, 40.000000)">
+                <g id="Page-1" transform="translate(23.000000, 22.000000) rotate(180.000000) translate(-23.000000, -22.000000) translate(12.000000, 11.000000)">
+                    <path d="M16.8370578,10.583728 L7.94829239,1.1727476 C7.73162873,0.942750799 7.3794114,0.942750799 7.16274774,1.1727476 C6.94608409,1.40163331 6.94608409,1.77385037 7.16274774,2.00384717 L15.6581853,11.0003889 L7.16274774,19.9958195 C6.94608409,20.2258163 6.94608409,20.5980334 7.16274774,20.8269191 C7.27163512,20.942473 7.41385537,21.00025 7.55496452,21.00025 C7.69718476,21.00025 7.83940501,20.942473 7.94829239,20.8269191 L16.8370578,11.4159387 C17.0537215,11.1859419 17.0537215,10.8137248 16.8370578,10.583728" id="icn_back"></path>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>

@@ -18,7 +18,7 @@ export default {
     return {
       sectionHeaderContent: {
         title: 'Channels',
-        funcIcon: 'setting',
+        funcIcon: 'nope',
       },
     };
   },
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/common.scss';
+@import '@/assets/css/variables.scss';
 .container-channel {
   padding-bottom: 140px;
 }

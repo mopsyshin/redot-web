@@ -20,6 +20,17 @@
     transform: scale(1);  
   }
 }
+@keyframes popit {
+  0% {
+    transform: scale(1);  
+  }
+  40% {
+    transform: scale(1.2);  
+  }
+  100% {
+    transform: scale(1);  
+  }
+}
 @keyframes containerIn {
   from {
     opacity: 0;
@@ -66,6 +77,14 @@
     transform: translateY(0);
   }
 }
+@keyframes rtl {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 .main-view-transition-enter-active {
   animation: containerIn 0.3s;
 }
@@ -95,4 +114,10 @@
 }
 .downtoup-leave-active {
   animation: downToUp 0.3s reverse;
+}
+.rtl-enter-active {
+  animation: rtl 0.3s;
+}
+.rtl-leave-active {
+  animation: rtl 0.3s reverse;
 }
