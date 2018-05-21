@@ -20,13 +20,6 @@ export default new Router({
       path: '/trending',
       name: 'trending',
       component: Trending,
-      children: [
-        {
-          path: '/trending/post/:id',
-          name: 'postdetail',
-          component: PostDetail,
-        },
-      ],
     },
     {
       path: '/channel',
@@ -48,10 +41,20 @@ export default new Router({
       name: 'login',
       component: Login,
     },
+    {
+      path: '/post/:id',
+      name: 'postdetail',
+      props: true,
+      components: {
+        default: Trending,
+        detailView: PostDetail,
+      },
+    },
   ],
-  scrollBehavior() {
-    return {
-      x: 0, y: 0,
-    };
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    return null;
   },
 });

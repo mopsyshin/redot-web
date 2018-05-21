@@ -1,22 +1,29 @@
 <template>
   <div>
-    <!-- <header-gnb/> -->
     <div class="container-main-view">
       <transition name="main-view-transition" appear>
-        <router-view class="main-router-view"/>
+        <keep-alive>
+          <router-view class="main-router-view"/>
+        </keep-alive>
       </transition>
     </div>
     <footer-gnb/>
     <transition name="downtoup" mode="out-in" appear>
       <UploadPage v-show="uploadPageState"/>
     </transition>
+    <transition name="downtoup" mode="out-in" appear>
+      <AddChannel v-show="AddChannelState"/>
+    </transition>
+    <transition name="rtl" appear>
+      <router-view name="detailView" class="detail-router-view"></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-// import HeaderGnb from '@/shared-components/gnb/HeaderGnb';
 import FooterGnb from '@/shared-components/gnb/FooterGnb';
 import UploadPage from '@/spa/upload/Upload';
+import AddChannel from '@/spa/channel/AddChannel';
 import { db, auth } from '@/firebase';
 
 export default {
@@ -24,6 +31,9 @@ export default {
   computed: {
     uploadPageState() {
       return this.$store.state.uploadPageState;
+    },
+    AddChannelState() {
+      return this.$store.state.uiStore.AddChannelState;
     },
   },
   beforeCreate() {
@@ -65,9 +75,9 @@ export default {
     },
   },
   components: {
-    // HeaderGnb,
     FooterGnb,
     UploadPage,
+    AddChannel,
   },
 };
 </script>
@@ -80,8 +90,10 @@ export default {
   max-width: 768px;
   margin: 0 auto;
   .main-router-view {
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
     max-width: 768px;
     margin: 0 auto;
   }

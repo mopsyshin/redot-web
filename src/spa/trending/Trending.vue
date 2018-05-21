@@ -1,5 +1,5 @@
 <template>
-  <div class="container-trending">
+  <div class="container-trending" @scroll="onScroll">
     <SectionHeader :content="sectionHeaderContent"/>
     <div v-masonry transition-duration="0s"
          item-selector=".post-card-item" class="post-list">
@@ -7,14 +7,14 @@
         <PostCard v-masonry-tile
                   class="post-card-item"
                   v-for="(post) in posts"
-                  v-if="postReady"
                   :key="post.post_id"
                   :post="post">
         </PostCard>
         <div v-masonry-tile
               class="post-card-item skeleton"
-              v-for="(item, index) in 6"
-              :key="index">
+              v-for="(item, index) in 4"
+              :key="index"
+              v-if="!postReady">
           <div class="channel"></div>
           <div class="title1"></div>
           <div class="title2"></div>
@@ -25,9 +25,6 @@
         </div>
       </transition-group>
     </div>
-    <transition name="rtl" appear>
-      <router-view></router-view>
-    </transition>
   </div>
 </template>
 
@@ -63,10 +60,6 @@ export default {
   },
   created() {
     this.getPosts();
-    document.addEventListener('scroll', this.onScroll);
-  },
-  beforeDestroy() {
-    document.removeEventListener('scroll', this.onScroll, false);
   },
   methods: {
     randomNumber() {
@@ -84,6 +77,9 @@ export default {
         });
       }).then(() => {
         this.postReady = true;
+        setTimeout(() => {
+          this.$redrawVueMasonry();
+        }, 500);
       });
       return first.get().then((querySnapshot) => {
         const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
@@ -94,10 +90,12 @@ export default {
       });
     },
     loadmore() {
+      this.$redrawVueMasonry();
       this.next.get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           this.posts.push(doc.data());
         });
+        this.$redrawVueMasonry();
       });
       return this.next.get().then((querySnapshot) => {
         const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
@@ -110,36 +108,20 @@ export default {
         console.log(message + err);
       });
     },
-    // 한번 스크롤을 감지한 이후엔 300ms 이후 스크롤을 감지합니다
     onScroll: _.debounce(function () {
-      let scrOfY = 0;
       let docHeight = 0;
       let winHeight = 0;
-      let currentScroll = 0;
       let pos = 0;
-      function getScrollY() {
-        if (typeof (window.pageYOffset) === 'number') {
-          // Netscape compliant
-          scrOfY = window.pageYOffset;
-        } else if (document.body && (document.body.scrollLeft || document.body.scrollTop)) {
-          // DOM compliant
-          scrOfY = document.body.scrollTop;
-        } else if (document.documentElement && (document.documentElement.scrollLeft
-          || document.documentElement.scrollTop)) {
-          // IE6 standards compliant mode
-          scrOfY = document.documentElement.scrollTop;
-        }
-        return scrOfY;
-      }
-      docHeight = document.querySelector('.main-router-view').offsetHeight;
+      let target = 0;
+      target = document.querySelector('.main-router-view').scrollTop;
+      docHeight = document.querySelector('.post-list').offsetHeight;
       winHeight = window.innerHeight;
-      currentScroll = getScrollY();
-      pos = docHeight - (winHeight + currentScroll);
+      pos = docHeight - (winHeight + target);
       console.log(pos);
-      if (pos < 300) {
+      if (pos < 10) {
         this.loadmore();
       }
-    }, 100),
+    }, 400),
   },
   components: {
     SectionHeader,

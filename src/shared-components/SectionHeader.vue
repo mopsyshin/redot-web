@@ -4,11 +4,17 @@
       {{ content.title }}
     </div>
     <div class="section-right">
-      <button class="btn-filter" v-if="content.funcIcon == 'setting'">
+      <button class="btn-filter" v-if="content.funcIcon === 'setting'">
         <img src="@/assets/images/gnb-setting.svg">
       </button>
-      <button class="btn-filter" v-if="content.funcIcon == 'more'">
+      <button class="btn-filter"
+              v-if="content.funcIcon === 'more'">
         <img src="@/assets/images/post-more.svg">
+      </button>
+      <button class="btn-filter"
+              @click="openAddChannel"
+              v-if="content.funcIcon === 'add-channel'">
+        채널 생성
       </button>
     </div>
   </div>
@@ -18,6 +24,12 @@
 export default {
   name: 'SectionHeader',
   props: ['content'],
+  methods: {
+    openAddChannel() {
+      this.lockBackground();
+      this.$store.commit('toggleAddChannel');
+    },
+  },
 };
 
 </script>
@@ -37,6 +49,11 @@ export default {
   .section-right {
     display: flex;
     align-items: center;
+    .btn-filter {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: $active-blue;
+    }
   }
 }
 </style>

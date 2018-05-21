@@ -55,7 +55,7 @@ export default {
     color: $point-red;
     font-size: 16px;
     border: 1px solid $point-red;
-    border-radius: 8px;
+    border-radius: 48px;
   }
 }
 </style>

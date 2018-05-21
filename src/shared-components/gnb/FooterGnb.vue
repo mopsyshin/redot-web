@@ -7,7 +7,7 @@
         :key="gnbItem.key">
         <img :src='"@/assets/images/" + gnbItem + "-on.svg"'
         :class="{active: gnbItem == currentTab}">
-      </div>
+      </div>=
     </div>
   </div>
 </template>
@@ -47,8 +47,7 @@ export default {
       const scroll = new Scroll(document.body);
       if (targetUrl === 'upload') {
         this.$store.dispatch('toggleUploadPageState');
-        document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';
+        this.lockBackground();
       } else if (targetUrl === 'trending' && this.currentTab === 'trending') {
         this.$store.dispatch('refreshTrending');
         scroll.to(0, 1);

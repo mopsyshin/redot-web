@@ -18,7 +18,7 @@ export default {
     return {
       sectionHeaderContent: {
         title: 'Channels',
-        funcIcon: 'nope',
+        funcIcon: 'add-channel',
       },
     };
   },

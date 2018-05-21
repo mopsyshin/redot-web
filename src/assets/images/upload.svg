@@ -1,7 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
-    <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
-        <path fill="#CCC" d="M5 11.667h14v1H5z"/>
-        <path fill="#CCC" d="M12.5 5.167v14h-1v-14z"/>
-        <rect width="23" height="23" x=".5" y=".5" stroke="#CCC" rx="3"/>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 26 26" style="enable-background:new 0 0 26 26;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#CCCCCC;}
+</style>
+<g>
+	<polygon class="st0" points="13.5,7.2 12.5,7.2 12.5,12.7 7,12.7 7,13.7 12.5,13.7 12.5,19.2 13.5,19.2 13.5,13.7 19,13.7 19,12.7 
+		13.5,12.7 	"/>
+	<path class="st0" d="M20.7,2H5.3C3.5,2,2,3.5,2,5.3v15.4C2,22.5,3.5,24,5.3,24h15.4c1.8,0,3.2-1.4,3.2-3.2V5.3
+		C24,3.5,22.5,2,20.7,2z M23,20.7c0,1.2-1,2.2-2.2,2.2H5.3C4,23,3,22,3,20.7V5.3C3,4,4,3,5.3,3h15.4C22,3,23,4,23,5.3V20.7z"/>
+</g>
 </svg>

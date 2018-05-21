@@ -1,6 +1,11 @@
 const ui = {
   state: {
-    uiState: 1,
+    AddChannelState: false,
+  },
+  mutations: {
+    toggleAddChannel(state) {
+      state.AddChannelState = !state.AddChannelState;
+    },
   },
 };
 

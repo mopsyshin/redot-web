@@ -10,8 +10,8 @@
     </div>
     <div class="card-body" @click="toPostDetail">
       <div class="card-title">
-        {{ post.post_title }}
-        <span class="comment-count">[12]</span>
+        {{ post.post_title.slice(0, 30) }}
+        <span class="comment-count">[{{ post.post_comment_count }}]</span>
       </div>
       <div class="card-image">
         <img :src="post.post_thumb_image" alt="" v-show="!post.post_thumb_image == ''">
@@ -52,6 +52,7 @@ export default {
   },
   methods: {
     toPostDetail() {
+      this.lockBackground();
       this.$router.push({ name: 'postdetail', params: { id: this.post.post_original_id } });
     },
     toggleLike() {
