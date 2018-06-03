@@ -7,3 +7,4 @@ const functions = require('firebase-functions');
 //  response.send("Hello from Firebase!");
 // });
 
+// functions.firestore.document(`post/{postId}`);
